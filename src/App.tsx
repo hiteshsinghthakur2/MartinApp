@@ -4,11 +4,12 @@
  */
 
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
-import { Home, PlusCircle, Settings } from 'lucide-react';
+import { Home, PlusCircle, Settings, ShieldAlert } from 'lucide-react';
 import { DeviceProvider } from './store/DeviceContext';
 import Dashboard from './pages/Dashboard';
 import AddDevice from './pages/AddDevice';
 import LogicMapper from './pages/LogicMapper';
+import AdminPanel from './pages/AdminPanel';
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/add" element={<AddDevice />} />
               <Route path="/settings" element={<LogicMapper />} />
+              <Route path="/admin" element={<AdminPanel />} />
             </Routes>
           </main>
 
@@ -53,6 +55,16 @@ export default function App() {
             >
               <Settings className="w-6 h-6" />
               <span className="text-xs font-medium">Remote</span>
+            </NavLink>
+
+            <NavLink 
+              to="/admin" 
+              className={({ isActive }) => 
+                `flex flex-col items-center gap-1 transition-colors ${isActive ? 'text-rose-400' : 'text-zinc-500 hover:text-zinc-300'}`
+              }
+            >
+              <ShieldAlert className="w-6 h-6" />
+              <span className="text-xs font-medium">Admin</span>
             </NavLink>
           </nav>
         </div>
