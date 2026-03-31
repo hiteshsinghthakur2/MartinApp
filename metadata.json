@@ -1,0 +1,7 @@
+{
+  "name": "Martin App",
+  "description": "Control center for the Martin custom home automation ecosystem.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
